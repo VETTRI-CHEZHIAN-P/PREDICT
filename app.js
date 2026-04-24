@@ -338,7 +338,7 @@ function renderMatchesTab() {
 function renderBoosterBadge() {
   const badge = $('booster-badge');
   if (!badge) return;
-  badge.textContent = `🚀 Double Boosters remaining: ${state.boostersLeft} / 3`;
+  badge.textContent = `Double Boosters remaining: ${state.boostersLeft} / 3`;
 }
 
 function buildMatchCard(match) {
@@ -405,7 +405,7 @@ function buildMatchCard(match) {
 }
 
 function getTeamClass(match, team, pred, disabled) {
-  if (pred && pred.team_picked === team) return disabled ? ' selected' : ' selected';
+  if (pred && pred.team_picked === team) return ' selected';
   if (state.selectedTeam[match.id] === team && !disabled) return ' selected';
   if (match.winner === team) return ' winner';
   if (match.winner && match.winner !== team) return ' loser';
@@ -533,7 +533,7 @@ function renderLeaderboard() {
     const rankClass = row.rank <= 3 ? `rank-${row.rank}` : 'rank-other';
     const isMe      = state.user && (row.player_id === state.user.id || row.name === (state.user.user_metadata?.full_name));
     return `
-      <tr class="player-row${isMe ? '" style="background:#e8f5e9' : ''}">
+      <tr class="player-row${isMe ? ' current-user' : ''}">
         <td><span class="rank-badge ${rankClass}">${row.rank}</span></td>
         <td>${escHtml(row.name || row.player_name || 'Player')}${isMe ? ' 👈' : ''}</td>
         <td style="color:${row.points >= 0 ? '#2e7d32' : '#c62828'};font-weight:800">${row.points >= 0 ? '+' : ''}${row.points}</td>

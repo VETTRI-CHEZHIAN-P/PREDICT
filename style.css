@@ -380,6 +380,7 @@ main { max-width: 900px; margin: 1.5rem auto; padding: 0 1rem 3rem; }
 }
 .leaderboard-table tr:last-child td { border-bottom: none; }
 .leaderboard-table tr:hover td { background: #f5f5f5; }
+.leaderboard-table tr.current-user td { background: #e8f5e9; }
 
 .rank-badge {
   display: inline-flex;
